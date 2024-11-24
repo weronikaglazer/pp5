@@ -1,6 +1,9 @@
+let ul = document.getElementById("client-list")
+clientList: Client[]  = []
+
 function saveData(event) {
   event.preventDefault()
-
+  
   const formEl = event.target
 
   let company = formEl.companyName.value
@@ -11,6 +14,9 @@ function saveData(event) {
   let industry = formEl.industry.value
   let active = formEl.active.value
 
+  let newClient = new Client(company, nip, city, street, comments, industry, active)
+
+
   formObject = {
     company: company,
     nip: nip,
@@ -20,7 +26,10 @@ function saveData(event) {
     industry: industry,
     active: active
   }
-  console.log(formObject)
+
+  console.log(newClient)
+  clientList.push(formObject)
+  showList()
 }
 
 
@@ -49,3 +58,27 @@ function fillData(event) {
     
     
 }
+
+
+function showCustomer() {
+
+}
+
+function showForm() {
+  document.getElementById("client-form").style.display = "block"
+  document.getElementById("client-list").style.display = "none"
+}
+
+function showList() {
+  document.getElementById("client-form").style.display = "none"
+  document.getElementById("client-list").style.display = "block"
+
+  let ul = document.getElementById("client-list")
+  ul.innerHTML = ""
+  for (let client of clientList) {
+    ul.innerHTML += `<li class="list-group-item">${client.company}<li>`
+  }
+}
+
+
+
