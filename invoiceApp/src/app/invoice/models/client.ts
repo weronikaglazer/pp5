@@ -1,7 +1,13 @@
-
-
-class Client {
-    constructor(company: string, nip: string, city: string, street: string, comments: string, industry: string, active: boolean) {
+export class Client {
+    company: string
+    nip: string
+    city: string
+    street: string
+    comments: string
+    industry: string
+    active: boolean
+    
+    constructor(company: string = '', nip: string = '', city: string = '', street: string = '', comments: string = '', industry: string = '', active: boolean = true) {
         this.company = company
         this.nip = nip
         this.city = city
@@ -11,13 +17,7 @@ class Client {
         this.active = active
     }
 
-    company: string
-    nip: string
-    city: string
-    street: string
-    comments: string
-    industry: string
-    active: boolean
+    
 
     getData(): string {
         return `${this.company} (${this.nip})`
@@ -26,10 +26,4 @@ class Client {
     getAddress(): string {
         return `${this.city}, ${this.street}`
     }
-
-
 }
-
-
-
-
