@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { ProductFormComponent } from './product/product-form/product-form.component';
 
+
 export const routes: Routes = [
     {
         path: "invoice",

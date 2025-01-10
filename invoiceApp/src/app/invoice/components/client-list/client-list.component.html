@@ -1,0 +1,10 @@
+<div class="client-list">
+    <ul class="list-group" id="client-list">
+        <app-client-list-element
+            *ngFor="let client of clientsList"
+            [client] = "client"
+            (deletedClientEvent)="deletedClient($event)"
+        ></app-client-list-element>
+    </ul>
+</div>
+<button type="button" class="btn btn-primary" (click)="redirect()">Add new client</button>
